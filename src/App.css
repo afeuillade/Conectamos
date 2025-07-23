@@ -1,0 +1,122 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor general centrado */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* barra de navegación */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+  flex-wrap: wrap;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+nav .h2{
+  font-size: 1.5rem;
+  color: #333;
+  margin-left: 1rem;
+}
+
+nav .logo {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+nav .links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav .links a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav .links a:hover {
+  color: #0077cc;
+}
+
+
+.cart {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* container principal */
+.container {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.container h2 {
+  font-size: 2rem;
+  color: #222;
+}
+
+/*config para celulares*/
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  nav .links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cart {
+    align-self: flex-end;
+  }
+
+  .container h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* --- Logo dentro del navbar --- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
+}
+
+/* Tamaño del logo en desktop */
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Responsive para celulares */
+@media screen and (max-width: 450px) {
+  .logo img {
+    height: 30px;
+  }
+
+  .logo h2 {
+    font-size: 1.2rem;
+  }
+}
