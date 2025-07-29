@@ -120,3 +120,23 @@ nav .links a:hover {
     font-size: 1.2rem;
   }
 }
+
+/* Para el footer */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/*fotin del ceo*/
+.ceo-image {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 4 / 5; 
+  object-fit: cover;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}

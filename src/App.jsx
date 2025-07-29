@@ -1,12 +1,25 @@
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
+import Home from './pages/Home.jsx';
+import About from './pages/About.jsx';
+import Contact from './pages/Contact.jsx';
+import { Footer } from './components/Footer.jsx';
+import Events from './pages/Events.jsx';
 
 function App() {
   return (
-    <div className="main-container">
+    <div className='main-container'>
+    <BrowserRouter >
       <NavBar />
-      <ItemListContainer greeting="¡Bienvenid@ a ConectaMos! Para gente que quiere conocer gente" />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sobre-nosotros" element={<About />} />
+        <Route path="/contacto" element={<Contact />} />
+        <Route path="/eventos" element={<Events />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
     </div>
   );
 }

@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget.jsx';
 import '../App.css'
 import Logo from '../assets/conectam.JPG';
+
 export default function NavBar(){
     return(
     <nav>
@@ -10,12 +12,13 @@ export default function NavBar(){
 
         </div>
 
-      <div className="links">
-        <a href="#">Inicio</a>
-        <a href="#">Quienes somos?</a>
-        <a href="#">Se parte</a>
-        <a href="#">Comprar mi entrada</a>
-      </div>
+      <ul style={{ listStyle: 'none', display: 'flex', gap: '1rem' }}>
+        <li><Link to="/">Inicio</Link></li>
+        <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
+        <li><Link to="/eventos">Eventos</Link></li>
+        <li><Link to="/contacto">Contacto</Link></li>
+        
+      </ul>
 
       <CartWidget />
     </nav>
