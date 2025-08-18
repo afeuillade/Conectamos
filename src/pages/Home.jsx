@@ -1,3 +1,12 @@
-export default function Home() {
-  return <h1>Home</h1>;
+import HeroSection from "../components/HeroSection";
+
+function Home() {
+  return (
+    <>
+      <HeroSection />
+      {/* Resto del contenido de Home */}
+    </>
+  );
 }
+
+export default Home;
