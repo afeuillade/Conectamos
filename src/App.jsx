@@ -11,6 +11,7 @@ import Networking from './pages/Networking.jsx';
 import Faqs from './pages/Faqs.jsx';
 import { CartProvider } from './context/CartContext';
 import Checkout from "./pages/Checkout";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/networking" element={<Networking />} />
             <Route path="/faqs" element={<Faqs />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </BrowserRouter>

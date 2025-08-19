@@ -4,7 +4,7 @@ import rescoldo from '../assets/alrescoldo.JPG';
 import treking from '../assets/treking.JPG';
 import networking from '../assets/networking.JPG';
 
-export default function ItemListContainer() {
+export default function ItemListContainer({ filterText }) {
   const [products, setProducts] = useState([]);
 
   const getProducts = () => {
@@ -44,12 +44,18 @@ export default function ItemListContainer() {
     getProducts().then((data) => setProducts(data));
   }, []);
 
+  const filteredProducts = products.filter(product =>
+    product.title.toLowerCase().includes(filterText.toLowerCase())
+  );
+
   return (
     <div style={{ marginBottom: "2rem" }}>
       <h2>Lista de Productos</h2>
       {products.length === 0 
         ? <p>Cargando productos...</p> 
-        : <ItemList products={products} />}
+        : filteredProducts.length === 0
+          ? <p>No se encontraron eventos.</p>
+          : <ItemList products={filteredProducts} />}
     </div>
   );
 }

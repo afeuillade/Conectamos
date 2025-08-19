@@ -8,73 +8,97 @@ export default function CartWidget() {
   const [showCart, setShowCart] = useState(false);
   const navigate = useNavigate();
 
-  // Cantidad total de entradas en el carrito
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   const increase = (item) => addToCart(item, 1);
-  const decrease = (item) => item.quantity > 1 ? addToCart(item, -1) : removeFromCart(item.id);
+  const decrease = (item) =>
+    item.quantity > 1 ? addToCart(item, -1) : removeFromCart(item.id);
 
   return (
     <div style={{ position: "relative" }}>
-      {/* Ícono del carrito con badge */}
       <div style={{ position: "relative", display: "inline-block" }}>
-        <img 
-          src={Carrito} 
-          alt="Carrito de compras" 
+        <img
+          src={Carrito}
+          alt="Carrito de compras"
           style={{ cursor: "pointer", width: "40px" }}
           onClick={() => setShowCart(!showCart)}
         />
         {totalItems > 0 && (
-          <span style={{
-            position: "absolute",
-            top: "-6px",
-            right: "-6px",
-            background: "red",
-            color: "white",
-            borderRadius: "50%",
-            padding: "3px 7px",
-            fontSize: "12px",
-            fontWeight: "bold",
-            boxShadow: "0 2px 5px rgba(0,0,0,0.2)"
-          }}>
+          <span
+            style={{
+              position: "absolute",
+              top: "-6px",
+              right: "-6px",
+              background: "red",
+              color: "white",
+              borderRadius: "50%",
+              padding: "3px 7px",
+              fontSize: "12px",
+              fontWeight: "bold",
+              boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+            }}
+          >
             {totalItems}
           </span>
         )}
       </div>
 
-      {/* Dropdown del carrito */}
       {showCart && (
-        <div style={{
-          position: "absolute",
-          right: 0,
-          top: "120%",
-          backgroundColor: "#fff",
-          border: "1px solid #ddd",
-          borderRadius: "12px",
-          padding: "1rem",
-          minWidth: "360px",
-          maxHeight: "450px",
-          overflowY: "auto",
-          boxShadow: "0 8px 16px rgba(0,0,0,0.25)",
-          zIndex: 100,
-          transition: "all 0.3s ease"
-        }}>
-          <h4 style={{ marginBottom: "0.8rem", fontSize: "1.1rem", borderBottom: "1px solid #eee", paddingBottom: "0.3rem" }}>
+        <div
+          style={{
+            position: "absolute",
+            right: 0,
+            top: "120%",
+            backgroundColor: "#fff",
+            border: "1px solid #ddd",
+            borderRadius: "12px",
+            padding: "1rem",
+            minWidth: "360px",
+            maxHeight: "450px",
+            overflowY: "auto",
+            boxShadow: "0 8px 16px rgba(0,0,0,0.25)",
+            zIndex: 100,
+            transition: "all 0.3s ease",
+          }}
+        >
+          <h4
+            style={{
+              marginBottom: "0.8rem",
+              fontSize: "1.1rem",
+              borderBottom: "1px solid #eee",
+              paddingBottom: "0.3rem",
+            }}
+          >
             Resumen de reserva
           </h4>
 
           {cart.length === 0 ? (
-            <p style={{ textAlign: "center", color: "#555" }}>No hay items en el carrito.</p>
+            <p style={{ textAlign: "center", color: "#555" }}>
+              No hay items en el carrito.
+            </p>
           ) : (
             <div>
-              {cart.map(item => (
-                <div key={item.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.7rem" }}>
-                  
+              {cart.map((item) => (
+                <div
+                  key={item.id}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "0.7rem",
+                  }}
+                >
                   <div style={{ flex: 2 }}>{item.title}</div>
 
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
-                    <button 
-                      onClick={() => decrease(item)} 
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.3rem",
+                    }}
+                  >
+                    <button
+                      onClick={() => decrease(item)}
                       style={{
                         width: "25px",
                         height: "25px",
@@ -82,14 +106,18 @@ export default function CartWidget() {
                         border: "1px solid #ccc",
                         backgroundColor: "#f8f8f8",
                         cursor: "pointer",
-                        fontWeight: "bold"
+                        fontWeight: "bold",
                       }}
-                    >−</button>
-                    
-                    <span style={{ minWidth: "20px", textAlign: "center" }}>{item.quantity}</span>
-                    
-                    <button 
-                      onClick={() => increase(item)} 
+                    >
+                      −
+                    </button>
+
+                    <span style={{ minWidth: "20px", textAlign: "center" }}>
+                      {item.quantity}
+                    </span>
+
+                    <button
+                      onClick={() => increase(item)}
                       style={{
                         width: "25px",
                         height: "25px",
@@ -97,12 +125,20 @@ export default function CartWidget() {
                         border: "1px solid #ccc",
                         backgroundColor: "#f8f8f8",
                         cursor: "pointer",
-                        fontWeight: "bold"
+                        fontWeight: "bold",
                       }}
-                    >+</button>
+                    >
+                      +
+                    </button>
                   </div>
 
-                  <div style={{ flex: 1, textAlign: "right", fontWeight: "500" }}>
+                  <div
+                    style={{
+                      flex: 1,
+                      textAlign: "right",
+                      fontWeight: "500",
+                    }}
+                  >
                     ${item.price * item.quantity}
                   </div>
                 </div>
@@ -110,11 +146,16 @@ export default function CartWidget() {
 
               <hr style={{ margin: "0.5rem 0", borderColor: "#eee" }} />
 
-              <div style={{ textAlign: "right", fontWeight: "bold", fontSize: "1.1rem" }}>
+              <div
+                style={{
+                  textAlign: "right",
+                  fontWeight: "bold",
+                  fontSize: "1.1rem",
+                }}
+              >
                 Total: ${getTotal()}
               </div>
 
-              {/* Botón para ir a checkout */}
               <button
                 onClick={() => {
                   setShowCart(false);
@@ -130,7 +171,7 @@ export default function CartWidget() {
                   borderRadius: "8px",
                   cursor: "pointer",
                   fontSize: "1rem",
-                  fontWeight: "500"
+                  fontWeight: "500",
                 }}
               >
                 Finalizar reserva
